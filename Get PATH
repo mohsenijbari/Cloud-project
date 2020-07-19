@@ -1,0 +1,23 @@
+#--------- Get PATH Authentication ----------------------------
+
+ if ( test  -z "$2"  )  && ( [ "$1" = "-create" ]  ||  [  "$1" = "-c"  ]  ||  [ "$1" = "--delete" ] || [ "$1" = "-d" ] )
+  then
+      echo "                               "
+      echo  -e  " Please enter the directory PATH  "Authentication decription file" :   \c "
+      read   location
+      if [ "$location" = "." ]
+        then
+          source  ./openrc
+        else
+          source   "$location"
+      fi
+ fi
+ if  ( !( test  -z "$2"  ))   && ( [ "$1" = "-create" ]  ||  [  "$1" = "-c"  ]  ||  [ "$1" = "--delete" ] || [ "$1" = "-d" ] )
+  then
+    if [ "$2" = "." ]
+        then
+          source  ./openrc
+        else
+          source   "$2"
+      fi
+   fi
