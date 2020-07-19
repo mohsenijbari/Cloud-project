@@ -1,0 +1,71 @@
+#----------- Create  Instance ------------
+
+if  [ "$1" = "--create"  ] || [ "$1" = "-c" ]
+then
+
+     for  ((   ; 1 ;   ))
+     do
+     clear
+     echo  "                       "
+     echo  -e  "       Please Enter  Instance name  to Create the instance from Project :   \c "
+     read  inc_name
+     echo  "                       "
+     echo  -e  "       Please Enter  Instance Count  to Create the instance from Project :   \c "
+     read  inc_count
+     echo "                                       "
+     echo " Cloud image list   ---> "
+     openstack image list
+     echo  "                                      "
+     echo  -e  "       Please Select  image's name  to Create the instance from  List image :   \c "
+     read inc_image
+     echo "                                       "
+     echo " Cloud Flavor list  ---> "
+     openstack flavor list
+     echo "                                         "
+     echo  -e  "       Please Select  Flavor's name template to Create the instance  :   \c "
+     read  inc_flavor
+     echo "                                         "
+     echo " Cloud Network list  ---> "
+     openstack network list
+     echo "                      "
+     echo  -e  "       Please Select  Network's ID  template to  Create the instance  :   \c "
+     read inc_network
+     echo "                                    "
+     echo " Cloud keypair list  ---> "
+     echo "                                    "
+     openstack keypair list
+     echo  "                                   "
+     echo  -e  "       Please Select  Keypair's name  template to Create the instance  :   \c "
+     read inc_keypair
+     echo "                         "
+     echo " Cloud Security_Group list  ---> "
+     openstack security group list
+     echo "                                   "
+     echo  -e  "       Please Select  Security_Gropu's name  template to Create the instance  :   \c "
+     read   inc_security
+     echo "                                   "
+     echo  -e  "       Do you want to assign another security group  ?  Enter Y  for Continue  or   Enter  N for Cancel  \c "
+     read  test;
+     if [ "$test" = y ] ||  [ "$test"  = yes ]
+     then
+     echo "                                   "
+     openstack security group list
+     echo  -e  "       Please Select  Security_Gropu's name  template to Create the instance  :   \c "
+     read   inc2_security
+     openstack server create --flavor "$inc_flavor"  --image  "$inc_image"  --nic net-id="$inc_network"   --security-group "$inc_security" --security-group "$inc2_security"  --key-name "$inc_keypair"  $inc_name
+     else
+     echo "                                       "
+     openstack server create --flavor "$inc_flavor"  --image  "$inc_image"  --nic net-id="$inc_network"   --security-group "$inc_security"  --key-name "$inc_keypair"  $inc_name
+     fi
+
+     sleep 30;
+     echo " Create Instance  Provisioning Success "
+     echo "                                       "
+     echo  -e " Are you continue Enter  Y or Enter N / No for Quit   ?   : \c "
+     read  bool;
+     if [ "$bool" = n ] ||  [ "$bool"  = no ]
+     then
+        exit;
+     fi
+   done
+fi
