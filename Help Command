@@ -1,0 +1,57 @@
+#------------------  help Command   --------------
+
+if [ "$1" = "--help" ]  ||  [  "$1" = "-h"  ]
+then
+   echo "                                    "
+   echo "NAME    "
+   echo "         project  -  Script will Management  Openstack ansible "
+   echo "SYNOPSIS "
+   echo "         project  [options] [filepath]     "
+   echo "         project  [options] -             "
+
+   echo "                                          "
+   echo "EXANPLE                                   "
+   echo "         project -c                       "
+   echo "         project -c ./openrc              "
+   echo "                                          "
+
+   echo "DESCRIPTION                               "
+   echo " A shell in a Linux operating system takes input \
+   from you in the form of commands, processes it,\
+   and then gives an output. It is the interface through \
+   which a user works on the programs, commands, and scripts.\
+   A shell is accessed by a terminal which runs it."
+
+   echo "                                          "
+   echo "OPTIONES                                  "
+   echo " -h,  --help             "
+   echo "             display this help command  "
+   echo " -v,  --version          "
+   echo "             output version information "
+   echo " -d,  --delete           "
+   echo "             delete instance  User's projet  "
+   echo " -c,  --create           "
+   echo "             create instance  User's project  "
+
+   echo " AUTHOR "
+   echo "        Written by Mohsen Ijbari and Hanieh Jafari .  "
+   echo " REPORTING BUGS "
+   echo "        Report ls translation bugs to <m.ijbari@mail.um.ac.i> . "
+   echo " COPYRIGHT  "
+   echo "        Copyright  2020 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>. "
+   echo "        This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law. "
+   echo " SEE ALSO  "
+   echo "        Full documentation at: <http://www.itc.usb.ac.ir/document/software/coreutils/phase2> ."
+echo "                                                      "
+   echo "                                                      "
+   echo  -e   " Enter Key Q or CTL+C for Quit  Manual   : \c "
+   read  Key
+
+   if [ "$Key" = "q" ]
+      then
+          exit;
+   else
+        echo  -e   " Enter Key Q or CTL+C for Quit  Manual   : \c "
+        read  Key
+   fi
+fi
