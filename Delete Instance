@@ -1,0 +1,38 @@
+#------------ deletion Command ---------------------
+
+
+if [ "$1" = "--delete" ] || [ "$1" = "-d" ]
+then
+       clear
+       for ((    ;  1  ;  ))
+       do
+       echo "                  "
+       echo "   List all instances:      "
+       echo "                                 "
+       openstack server list;
+       echo "                                 "
+       echo  -e    " Please enter  Instance name  to delete the instance from Project :   \c "
+          read  INC
+       echo    -e  " Enter Key 'Y'  for Continue Process deletetion OR enter the other keys for Cancel  :  \c "
+          read QQ ;
+
+       if [ "$QQ" != "y" ]
+          then
+              exit;
+      else
+          openstack server delete "$INC"
+          sleep 30 ;
+          echo "                     "
+          echo " List Instances Remaining from project "
+          openstack server list
+       fi
+
+     echo  -e " Aru you continue Enter  Y or Enter N / No for Quit   ?   : \c "
+     read  bool;
+     if [ "$bool" = n ] ||  [ "$bool"  = no ]
+     then
+        exit;
+      fi
+   done ;
+
+ fi
