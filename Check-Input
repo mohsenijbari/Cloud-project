@@ -1,0 +1,16 @@
+
+
+
+#-------------- cheack  INPUT -------------------
+
+if  [ "$1" != "--help" ]  &&  [  "$1" != "-h"  ]  && [ "$1" != "--version" ] && [ "$1" != "-v" ]  \
+ && [ "$1" != "--delete" ]  && [ "$1" != "-d" ]  &&  [ "$1" != "--create" ] && [ "$1" != "-c" ]
+then
+    echo "                  "
+    echo "   Try 'project  --help'  for more information. "
+    echo "                                        "
+#Exit Failed
+    exit;
+fi
+
+#--------------------------------------
