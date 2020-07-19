@@ -1,0 +1,12 @@
+#------------ version  Command  -----------------
+
+
+if [ "$1" = "--version" ] || [ "$1" = "-v" ]
+then
+       echo "                       "
+       echo "AUTHOR                 "
+       echo "        Written by Mohsen Ijbari and Hanieh Jafari . "
+       echo "VERSION  "
+       echo "        Software  version 1.0,not  Support assagin Description to instances "
+       echo "                       "
+fi
